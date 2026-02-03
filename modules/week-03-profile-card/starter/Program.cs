@@ -63,7 +63,7 @@ public class Program
 
         Console.WriteLine("\nACADEMIC INFORMATION\n");
         Console.WriteLine($"Major: {major}");
-        Console.WriteLine($"GPA: {gpa}");
+        Console.WriteLine($"GPA: {gpa:F2}");
         Console.WriteLine($"Graduation Year: {graduationYear}");
         Console.WriteLine($"Full time: {isFullTime}");
 
