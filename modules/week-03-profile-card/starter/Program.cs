@@ -5,13 +5,11 @@ public class Program
     public static void Main(string[] args)
     {
         // ---- INTRO ---- //
-
         Console.WriteLine("╔════════════════════════════════════════════╗");
         Console.WriteLine("║            STUDENT PROFILE CARD            ║");
         Console.WriteLine("╚════════════════════════════════════════════╝\n");
 
         // - Collect Personal Information - //
-
         Console.WriteLine("Please enter your full name: ");
         string fullName = Console.ReadLine();
 
@@ -19,7 +17,6 @@ public class Program
         string homeTown = Console.ReadLine();
 
         // - Collect Academic Information - //
-
         Console.WriteLine("Please enter your major: ");
         string major = Console.ReadLine();
 
@@ -34,7 +31,6 @@ public class Program
         bool isFullTime = isFullTimeString == "yes" || isFullTimeString == "y";
 
         // - Collect Additional Info - //
-
         Console.WriteLine("Please enter your age: ");
         int age = int.Parse(Console.ReadLine());
 
@@ -42,7 +38,6 @@ public class Program
         double heightInches = double.Parse(Console.ReadLine());
 
         // ---- CALCULATE EXTRA INFO ---- //
-
         int birthYear = 2026 - age;
         int yearsUntilGraduation = graduationYear - 2026;
 
@@ -53,7 +48,6 @@ public class Program
         int ageMonths = age * 12;
 
         // ---- DISPLAY INFO ---- //
-
         Console.WriteLine("\n\n═══════════════════════════════════════════");
         Console.WriteLine("PERSONAL INFORMATION\n");
         Console.WriteLine($"Full Name: {fullName}");
