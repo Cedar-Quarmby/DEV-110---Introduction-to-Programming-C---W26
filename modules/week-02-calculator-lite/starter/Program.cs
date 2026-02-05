@@ -1,48 +1,92 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace CalculatorLite;
 
 public class Program
 {
     public static void Main(string[] args)
     {
+        // ---- VARIABLES ---- ///
+        int totalCalcs = 0;
+        double num1;
+        double num2;
+        string userName;
+
+        // ---- INTRO ---- ///
         Console.WriteLine("=== Calculator Lite ===\n");
 
-        // TODO: Declare variables for storing user input (use descriptive names)
-        // Hint: You'll need variables for two numbers, user name, and calculation choice
+        Console.WriteLine("Enter your name: ");
+        userName = Console.ReadLine();
+        Console.WriteLine($"Hello, {userName}.");
 
-        // TODO: Ask for user's name (string) and greet them
-        // Example: "Enter your name: " then "Hello, [name]!"
+        Console.WriteLine("Use decimal precision? (y/n) ");
+        string decPresChoice = Console.ReadLine();
+        bool decPres = decPresChoice == "yes" || decPresChoice == "y";
 
-        // TODO: Ask if they want to use decimals (bool)
-        // Example: "Use decimal precision? (yes/no): "
-        // Store as boolean (true for yes, false for no)
+        // -- Number inputs -- //
+        Console.WriteLine("What is the first number? ");
+        num1 = decPres ? double.Parse(Console.ReadLine()) : int.Parse(Console.ReadLine());
 
-        // TODO: Prompt user for first number (double or int based on choice)
-        // If decimals: use double.Parse()
-        // If no decimals: use int.Parse() then cast to double
+        Console.WriteLine("What is the second number? ");
+        num2 = decPres ? double.Parse(Console.ReadLine()) : int.Parse(Console.ReadLine());
 
-        // TODO: Prompt user for second number (same type as first)
+        // ---- MATH ---- ///
 
-        // TODO: Calculate ALL arithmetic operations:
-        // - sum (addition: +)
-        // - difference (subtraction: -)
-        // - product (multiplication: *)
-        // - quotient (division: /)
-        // - remainder (modulus: %)
-        // - average ((num1 + num2) / 2)
+        // -- Calculate -- //
+        double sum = num1 + num2;
+        double diff = num1 - num2;
+        double prod = num1 * num2;
+        double avg = (num1 + num2) / 2;
+        double percentDiff = (num1 - num2) / num1 * 100;
 
-        // TODO: Display results with proper formatting
-        // Show 2 decimal places: {value:F2}
-        // Include descriptive labels for each operation
+        double quotient = 0;
+        double remainder = 0;
 
-        // TODO: Check if second number is zero BEFORE dividing
-        // Use if statement: if (num2 == 0) { show error } else { calculate }
+        totalCalcs += 5;
 
-        // TODO: Count total calculations performed (int)
-        // Display: "Performed [count] calculations for [name]!"
+        // Check num2 is 0 before divide
+        if (num2 == 0)
+        {
+            Console.WriteLine("Cannot divide, num2 is zero.");
+        }
+        else
+        {
+            quotient = num1 / num2;
+            remainder = num1 % num2;
+            totalCalcs += 2;
+        }
 
-        // TODO: Calculate percentage difference
-        // Formula: ((num1 - num2) / num1) * 100
-        // Display with % symbol
-        Console.WriteLine("\nThank you for using Calculator Lite!");
+        // -- Display -- //
+        if (decPres)
+        {
+            Console.WriteLine($"Addition: {sum:F2}");
+            Console.WriteLine($"Subtraction: {diff:F2}");
+            Console.WriteLine($"Multiplication: {prod:F2}");
+            if (num2 != 0)
+            {
+                Console.WriteLine($"Division: {quotient:F2}");
+                Console.WriteLine($"Remainder: {remainder:F2}");
+            }
+
+            Console.WriteLine($"Average: {avg:F2}");
+            Console.WriteLine($"Percentage difference: {percentDiff:F2}%");
+        }
+        else
+        {
+            Console.WriteLine($"Addition: {sum:F0}");
+            Console.WriteLine($"Subtraction: {diff:F0}");
+            Console.WriteLine($"Multiplication: {prod:F0}");
+            if (num2 != 0)
+            {
+                Console.WriteLine($"Division: {quotient:F0}");
+                Console.WriteLine($"Remainder: {remainder:F0}");
+            }
+
+            Console.WriteLine($"Average: {avg:F0}");
+            Console.WriteLine($"Percentage difference: {percentDiff:F0}%");
+        }
+
+        Console.WriteLine($"\n Performed {totalCalcs} calculations for {userName}.");
+        Console.WriteLine("\nThank you for using Calculator Lite.");
     }
 }
