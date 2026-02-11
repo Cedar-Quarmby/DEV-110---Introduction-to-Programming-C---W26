@@ -1,6 +1,6 @@
 # Week 5: Guess the Number - Study Notes
 
-**Name:**
+**Name: Cedar Q**
 
 ## Loop Types
 
