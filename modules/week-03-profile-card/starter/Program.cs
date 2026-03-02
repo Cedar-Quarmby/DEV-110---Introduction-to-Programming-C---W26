@@ -4,43 +4,70 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        // ---- INTRO ---- //
         Console.WriteLine("╔════════════════════════════════════════════╗");
-        Console.WriteLine("║         STUDENT PROFILE CARD               ║");
+        Console.WriteLine("║            STUDENT PROFILE CARD            ║");
         Console.WriteLine("╚════════════════════════════════════════════╝\n");
 
-        // TODO: Collect PERSONAL INFORMATION (strings)
-        // - Full name
-        // - Hometown (city, state)
-        // - Favorite color
-        // - Dream job
-        // Hint: string variableName = Console.ReadLine();
+        // - Collect Personal Information - //
+        Console.WriteLine("Please enter your full name: ");
+        string fullName = Console.ReadLine();
 
-        // TODO: Collect ACADEMIC INFORMATION
-        // - Major (string)
-        // - GPA (double, 0.0-4.0)
-        // - Graduation year (int)
-        // - Is full-time student? (bool from yes/no)
-        // Hint: double gpa = double.Parse(Console.ReadLine());
-        // Hint: bool isFullTime = answer.ToLower() == "yes";
+        Console.WriteLine("Please enter your hometown (city, state): ");
+        string homeTown = Console.ReadLine();
 
-        // TODO: Collect ADDITIONAL DETAILS
-        // - Age (int)
-        // - Height in inches (double)
-        // - Favorite number (int)
+        // - Collect Academic Information - //
+        Console.WriteLine("Please enter your major: ");
+        string major = Console.ReadLine();
 
-        // TODO: CALCULATE derived information
-        // - Birth year = 2026 - age
-        // - Years to graduation = graduationYear - 2026
-        // - Height in feet and inches: feet = heightInches / 12, inches = heightInches % 12
-        // - Is honor student? = gpa >= 3.5
-        // - Age in months = age * 12
+        Console.WriteLine("Please enter your GPA: ");
+        double gpa = double.Parse(Console.ReadLine());
 
-        // TODO: DISPLAY formatted profile card
-        // Use sections with headers:
-        // - PERSONAL INFORMATION
-        // - ACADEMIC DETAILS
-        // - CALCULATED STATISTICS
-        // Use proper alignment and formatting
+        Console.WriteLine("Please enter your graduation year: ");
+        int graduationYear = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Are you a full time student (y/n)? ");
+        string isFullTimeString = Console.ReadLine().ToLower();
+        bool isFullTime = isFullTimeString == "yes" || isFullTimeString == "y";
+
+        // - Collect Additional Info - //
+        Console.WriteLine("Please enter your age: ");
+        int age = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Please enter your height in inches: ");
+        double heightInches = double.Parse(Console.ReadLine());
+
+        // ---- CALCULATE EXTRA INFO ---- //
+        int birthYear = 2026 - age;
+        int yearsUntilGraduation = graduationYear - 2026;
+
+        double heightSoloFeet = Math.Floor(heightInches / 12);
+        double heightSoloInches = Math.Floor(heightInches % 12);
+
+        bool isHonorStudent = gpa >= 3.5;
+        int ageMonths = age * 12;
+
+        // ---- DISPLAY INFO ---- //
+        Console.WriteLine("\n\n═══════════════════════════════════════════");
+        Console.WriteLine("PERSONAL INFORMATION\n");
+        Console.WriteLine($"Full Name: {fullName}");
+        Console.WriteLine($"Hometown: {homeTown}");
+        Console.WriteLine($"Age: {age}");
+        Console.WriteLine($"Height (in inches): {heightInches}");
+
+        Console.WriteLine("\nACADEMIC INFORMATION\n");
+        Console.WriteLine($"Major: {major}");
+        Console.WriteLine($"GPA: {gpa:F2}");
+        Console.WriteLine($"Graduation Year: {graduationYear}");
+        Console.WriteLine($"Full time: {isFullTime}");
+
+        Console.WriteLine("\nCALCULATED STATISTICS\n");
+        Console.WriteLine($"Birth Year: {birthYear}");
+        Console.WriteLine($"Years until Graduation: {yearsUntilGraduation}");
+        Console.WriteLine($"Height (in feet and inches): {heightSoloFeet}'{heightSoloInches}\"");
+        Console.WriteLine($"Honor Student: {isHonorStudent}");
+        Console.WriteLine($"Age in Months: {ageMonths}");
+
         Console.WriteLine("\n═══════════════════════════════════════════");
         Console.WriteLine("Profile complete! Good luck with your studies!");
     }
