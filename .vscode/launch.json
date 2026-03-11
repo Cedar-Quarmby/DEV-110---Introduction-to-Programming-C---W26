@@ -2,6 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": ".NET Core Attach",
+      "type": "coreclr",
+      "request": "attach"
+    },
+    {
+      "name": "C#: MadLibs Debug",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/modules/week-08-mad-libs/starter/MadLibs.csproj"
+    },
+    {
       "name": "Lab - Week 08 - Movie Tracker (starter)",
       "type": "coreclr",
       "request": "launch",
